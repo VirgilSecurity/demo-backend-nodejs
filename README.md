@@ -1,6 +1,6 @@
-# Sample backend for Node.js
+# Sample Backend for Node.js
 
-This repository contains a sample backend code that demonstrates how to generate a Virgil JWT using Node.js.
+This repository contains a sample backend code that demonstrates how to generate a Virgil JWT using the [Node.js SDK](https://github.com/VirgilSecurity/virgil-sdk-javascript)
 
 ## Clone
 
@@ -22,7 +22,7 @@ To generate a JWT the following values are required:
 | API_KEY_ID               | ID of your API key. A unique string value that identifies your account in the Virgil Cloud. |
 | APP_ID                   | ID of your Virgil Application. |
 
-## Add your Virgil account credentials to .env
+## Add Virgil Credentials to .env
 
 - open the project folder
 - create a `.env` file
@@ -30,14 +30,33 @@ To generate a JWT the following values are required:
 - save the `.env` file
 
 
-## Install dependencies and run the server
+## Install Dependencies and Run the Server
 
 ```
 $ npm install
 $ npm run start
 ```
-
 Now, use your client code to make a request to get a JWT from the sample backend that is working on http://localhost:3000.
+
+## Usage
+To generate JWT, you need to use the `JwtGenerator` class from the SDK.
+
+```js
+const virgilCrypto = new VirgilCrypto();
+
+const generator = new JwtGenerator({
+  appId: process.env.APP_ID,
+  apiKeyId: process.env.API_KEY_ID,
+  apiKey: virgilCrypto.importPrivateKey(process.env.API_PRIVATE_KEY),
+  accessTokenSigner: new VirgilAccessTokenSigner(virgilCrypto)
+});
+
+```
+Then you need to provide an HTTP endpoint which will return the JWT with the user's identity as a JSON.
+
+For more details take a look at the [server.js](server.js) file.
+
+
 
 ## License
 
