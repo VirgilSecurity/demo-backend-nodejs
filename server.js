@@ -19,7 +19,10 @@ const pseudoDecodeToken = (token) => usersStorage.get(token);
 const pseudoVerifyToken = (token) => usersStorage.has(token);
 
 app.post('/authenticate', (req, res) => {
-  if (!req.body && !req.body.identity) res.status(400).send('You should specify identity in body');
+  if (!req.body || !req.body.identity) {
+    res.statusMessage = 'You should specify identity in body';
+    res.status(400).end();
+  }
   const token = generateUserToken();
   pseudoEncodeToken(req.body.identity, token);
   res.json({ token });

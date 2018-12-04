@@ -2,8 +2,6 @@
 
 This repository contains a sample backend code that demonstrates how to generate a Virgil JWT using Node.js.
 
-
-
 ## Clone
 
 Clone the repository from GitHub.
@@ -14,7 +12,7 @@ $ git clone https://github.com/VirgilSecurity/e3kit-js.git
 
 ## Get Virgil Credentials
 
-If you don't have an account yet, [sign up for one](https://VirgilSecurity.com/getstarted) using your e-mail.
+If you don't have an account yet, [sign up for one](https://dashboard.virgilsecurity.com/signup) using your e-mail.
 
 To generate a JWT the following values are required:
 
