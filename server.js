@@ -22,6 +22,7 @@ app.post('/authenticate', (req, res) => {
   if (!req.body || !req.body.identity) {
     res.statusMessage = 'You should specify identity in body';
     res.status(400).end();
+    return;
   }
   const token = generateUserToken();
   pseudoEncodeToken(req.body.identity, token);
@@ -41,7 +42,7 @@ app.get('/virgil-jwt', (req, res) => {
 
   // 'Check if request is authorized with token from POST /authorize'
   if ((!req.headers.authorization || !req.headers.authorization.startsWith('Bearer '))) {
-
+    res.statusMessage = "No Authorization header";
     res.status(401).send('Unauthorized');
     return;
   }
