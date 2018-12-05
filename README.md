@@ -44,7 +44,7 @@ Now, use your client code to make a request to get a JWT from the sample backend
 ## Specification
 
 ### /authenticate endpoint
-This endpoint is an example of users authentication. It takes user `identity` and responses with unique token.
+This endpoint is an example of users authentication. It takes user `identity` and responds with unique token.
 
 ```http
 POST https://localhost:3000/authenticate HTTP/1.1
