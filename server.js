@@ -26,7 +26,7 @@ app.post('/authenticate', (req, res) => {
   }
   const token = generateUserToken();
   pseudoEncodeToken(req.body.identity, token);
-  res.json({ token });
+  res.json({ authToken: token });
 });
 
 const virgilCrypto = new VirgilCrypto();
@@ -55,7 +55,7 @@ app.get('/virgil-jwt', (req, res) => {
   
   const virgilJwtToken = generator.generateToken(identity);
 
-  res.json({ token: virgilJwtToken.toString() });
+  res.json({ virgilToken: virgilJwtToken.toString() });
 });
 
 module.exports = app;
