@@ -48,13 +48,13 @@ POST https://localhost:3000/authenticate HTTP/1.1
 Content-type: application/json;
 
 {
-    "identity": string
+    "identity": "string"
 }
 
 Response:
 
 {
-    "authToken": string
+    "authToken": "string"
 }
 ```
 
@@ -69,7 +69,7 @@ Authorization: Bearer <authToken>
 Response:
 
 {
-    "virgilToken": string
+    "virgilToken": "string"
 }
 ```
 
