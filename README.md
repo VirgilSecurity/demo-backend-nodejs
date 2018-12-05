@@ -41,7 +41,7 @@ Now, use your client code to make a request to get a JWT from the sample backend
 ## Specification
 
 ### /authenticate endpoint
-This endpoint is an example of users authentication. It takes user identity and responses with unique token.
+This endpoint is an example of users authentication. It takes user `identity` and responses with unique token.
 
 ```http
 POST https://localhost:3000/authenticate HTTP/1.1
@@ -59,7 +59,7 @@ Response:
 ```
 
 ### /virgil-jwt endpoint
-This endpoint checks whether a user is authorized by an authorization header. It takes user's authToken, finds related user identity and generates a virgil token (which is [JSON Web Token](https://jwt.io/)) with this identity in a payload. Use this token to make authorized api calls to Virgil Cloud.
+This endpoint checks whether a user is authorized by an authorization header. It takes user's `authToken`, finds related user identity and generates a `virgilToken` (which is [JSON Web Token](https://jwt.io/)) with this `identity` in a payload. Use this token to make authorized api calls to Virgil Cloud.
 
 ```http
 GET https://localhost:3000/virgil-jwt HTTP/1.1
