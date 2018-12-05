@@ -1,6 +1,9 @@
 # Sample Backend for Node.js
 
-This repository contains a sample backend code that demonstrates how to generate a Virgil JWT using the [Node.js SDK](https://github.com/VirgilSecurity/virgil-sdk-javascript)
+This repository contains a sample backend code that demonstrates how to generate a Virgil JWT using the [Javascript SDK](https://github.com/VirgilSecurity/virgil-sdk-javascript)
+
+## Prerequisites
+- [NodeJS from 6 to 11](https://nodejs.org/uk/) 
 
 ## Clone
 
@@ -73,7 +76,7 @@ Response:
 }
 ```
 
-## Usage
+## Virgil JWT Generation
 To generate JWT, you need to use the `JwtGenerator` class from the SDK.
 
 ```js
