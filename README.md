@@ -2,6 +2,8 @@
 
 This repository contains a sample backend code that demonstrates how to generate a Virgil JWT using the [Javascript SDK](https://github.com/VirgilSecurity/virgil-sdk-javascript)
 
+> Do not use this authentication in production. Calls to /virgil-jwt endpoint must be allowed for authenticated users. Use your application authorization strategy.
+
 ## Prerequisites
 - [NodeJS from 6 to 11](https://nodejs.org/uk/) 
 
