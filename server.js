@@ -11,6 +11,7 @@ app.use(cors({ origin: true, methods: 'OPTIONS,POST,GET', }));
 app.use(express.json());
 
 app.post('/authenticate', authenticate);
-app.get('/virgil-jwt', requireAuthHeader, generateVirgilJwt );
+app.get('/virgil-jwt', requireAuthHeader, generateVirgilJwt);
+app.use(express.static('./public/'));
 
 module.exports = app;
