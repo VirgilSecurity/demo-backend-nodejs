@@ -2,8 +2,8 @@ require('dotenv').config();
 
 const requiredParams = [
     "APP_ID",
-    "API_PRIVATE_KEY",
-    "API_KEY_ID",
+    "APP_KEY",
+    "APP_KEY_ID",
 ].filter(name => !process.env[name]);
 
 if (requiredParams.length > 0) {
@@ -13,7 +13,7 @@ if (requiredParams.length > 0) {
 module.exports = {
     virgil: {
         appId: process.env.APP_ID,
-        apiPrivateKey: process.env.API_PRIVATE_KEY,
-        apiKeyId: process.env.API_KEY_ID
+        appKey: process.env.APP_KEY,
+        appKeyId: process.env.APP_KEY_ID
     }
 };

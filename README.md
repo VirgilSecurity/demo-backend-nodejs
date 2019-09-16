@@ -19,20 +19,26 @@ $ git clone https://github.com/VirgilSecurity/sample-backend-nodejs.git
 
 If you don't have an account yet, [sign up for one](https://dashboard.virgilsecurity.com/signup) using your e-mail.
 
+### You can download ready to use .env config
+
+1. Follow to Virgil Dashboard -> Your Application -> E3kit Section.
+2. Generate config in `Environment Config` section.
+3. Download config, put to the project root and rename it to `.env`.
+
+### Or you can add parameters manually:
+
 To generate a JWT the following values are required:
 
 | Variable Name                     | Description                    |
 |-----------------------------------|--------------------------------|
-| API_PRIVATE_KEY                  | Private key of your API key that is used to sign the JWTs. |
-| API_KEY_ID               | ID of your API key. A unique string value that identifies your account in the Virgil Cloud. |
+| APP_KEY                  | Private key of your App Key that is used to sign the JWTs. |
+| APP_KEY_ID               | ID of your App Key. A unique string value that identifies your account in the Virgil Cloud. |
 | APP_ID                   | ID of your Virgil Application. |
 
-## Add Virgil Credentials to .env
-
-- open the project folder
-- create a `.env` file
-- fill it with your account credentials (take a look at the `.env.example` file to find out how to setup your own `.env` file)
-- save the `.env` file
+1. Copy and rename `.env.example` to `.env`.
+2. Create Application in Virgil Dashboard, copy its `APP_ID` to `.env` config;
+3. Create App Key and save it to `APP_KEY` line in `.env`;
+4. Copy ID of the created key to `APP_KEY_ID` line in `.env`;
 
 
 ## Install Dependencies and Run the Server
@@ -86,8 +92,8 @@ const virgilCrypto = new VirgilCrypto();
 
 const generator = new JwtGenerator({
   appId: process.env.APP_ID,
-  apiKeyId: process.env.API_KEY_ID,
-  apiKey: virgilCrypto.importPrivateKey(process.env.API_PRIVATE_KEY),
+  apiKeyId: process.env.APP_KEY_ID,
+  apiKey: virgilCrypto.importPrivateKey(process.env.APP_KEY),
   accessTokenSigner: new VirgilAccessTokenSigner(virgilCrypto)
 });
 
