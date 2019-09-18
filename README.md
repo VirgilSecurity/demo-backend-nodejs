@@ -19,26 +19,26 @@ $ git clone https://github.com/VirgilSecurity/sample-backend-nodejs.git
 
 If you don't have an account yet, [sign up for one](https://dashboard.virgilsecurity.com/signup) using your e-mail.
 
-### You can download ready to use .env config
+### You can download a ready to use .env file
 
-1. Follow to Virgil Dashboard -> Your Application -> E3kit Section.
-2. Generate config in `Environment Config` section.
-3. Download config, put to the project root and rename it to `.env`.
+1. Go to Virgil Dashboard -> Your Application -> E3Kit Section.
+2. Generate `.env` in `.env file` section.
+3. Download generated file, put to the project root and rename it to `.env`.
 
-### Or you can add parameters manually:
+### Or you can add the parameters manually:
 
 To generate a JWT the following values are required:
 
 | Variable Name                     | Description                    |
 |-----------------------------------|--------------------------------|
-| APP_KEY                  | Private key of your App Key that is used to sign the JWTs. |
+| APP_KEY                  | Private key of your App that is used to sign the JWTs. |
 | APP_KEY_ID               | ID of your App Key. A unique string value that identifies your account in the Virgil Cloud. |
 | APP_ID                   | ID of your Virgil Application. |
 
 1. Copy and rename `.env.example` to `.env`.
-2. Create Application in Virgil Dashboard, copy its `APP_ID` to `.env` config;
-3. Create App Key and save it to `APP_KEY` line in `.env`;
-4. Copy ID of the created key to `APP_KEY_ID` line in `.env`;
+2. Create Application in Virgil Dashboard, copy its `APP_ID` to the `.env` file;
+3. Create App Key and save it to `APP_KEY` line in the `.env` file;
+4. Copy ID of the created key to `APP_KEY_ID` line in the `.env` file;
 
 
 ## Install Dependencies and Run the Server
