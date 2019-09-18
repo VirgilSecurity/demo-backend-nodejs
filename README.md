@@ -1,4 +1,4 @@
-# Sample Backend for Node.js
+# Demo Backend for Node.js
 
 This repository contains a sample backend code that demonstrates how to generate a Virgil JWT using the [Javascript SDK](https://github.com/VirgilSecurity/virgil-sdk-javascript)
 
@@ -31,9 +31,9 @@ To generate a JWT the following values are required:
 
 | Variable Name                     | Description                    |
 |-----------------------------------|--------------------------------|
+| APP_ID                   | ID of your Virgil Application. |
 | APP_KEY                  | Private key of your App that is used to sign the JWTs. |
 | APP_KEY_ID               | ID of your App Key. A unique string value that identifies your account in the Virgil Cloud. |
-| APP_ID                   | ID of your Virgil Application. |
 
 1. Copy and rename `.env.example` to `.env`.
 2. Create Application in Virgil Dashboard, copy its `APP_ID` to the `.env` file;
