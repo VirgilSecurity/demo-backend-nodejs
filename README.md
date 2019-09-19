@@ -22,7 +22,7 @@ If you don't have an account yet, [sign up for one](https://dashboard.virgilsecu
 ### You can download a ready to use .env file
 
 1. Go to Virgil Dashboard -> Your Application -> E3Kit Section.
-2. Generate `.env` in `.env file` section.
+2. Generate `.env` in **.env file** section.
 3. Download generated file, put to the project root and rename it to `.env`.
 
 ### Or you can add the parameters manually:
