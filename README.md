@@ -12,7 +12,7 @@ This repository contains a sample backend code that demonstrates how to generate
 Clone the repository from GitHub.
 
 ```
-$ git clone https://github.com/VirgilSecurity/sample-backend-nodejs.git
+$ git clone https://github.com/VirgilSecurity/demo-backend-nodejs.git
 ```
 
 ## Get Virgil Credentials
