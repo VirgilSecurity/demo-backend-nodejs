@@ -1,4 +1,4 @@
-# Sample Backend for Node.js
+# Demo Backend for Node.js
 
 This repository contains a sample backend code that demonstrates how to generate a Virgil JWT using the [Javascript SDK](https://github.com/VirgilSecurity/virgil-sdk-javascript)
 
@@ -19,20 +19,26 @@ $ git clone https://github.com/VirgilSecurity/sample-backend-nodejs.git
 
 If you don't have an account yet, [sign up for one](https://dashboard.virgilsecurity.com/signup) using your e-mail.
 
+### You can download a ready to use .env file
+
+1. Go to Virgil Dashboard -> Your Application -> E3Kit Section.
+2. Generate `.env` in `.env file` section.
+3. Download generated file, put to the project root and rename it to `.env`.
+
+### Or you can add the parameters manually:
+
 To generate a JWT the following values are required:
 
 | Variable Name                     | Description                    |
 |-----------------------------------|--------------------------------|
-| API_PRIVATE_KEY                  | Private key of your API key that is used to sign the JWTs. |
-| API_KEY_ID               | ID of your API key. A unique string value that identifies your account in the Virgil Cloud. |
 | APP_ID                   | ID of your Virgil Application. |
+| APP_KEY                  | Private key of your App that is used to sign the JWTs. |
+| APP_KEY_ID               | ID of your App Key. A unique string value that identifies your account in the Virgil Cloud. |
 
-## Add Virgil Credentials to .env
-
-- open the project folder
-- create a `.env` file
-- fill it with your account credentials (take a look at the `.env.example` file to find out how to setup your own `.env` file)
-- save the `.env` file
+1. Copy and rename `.env.example` to `.env`.
+2. Create Application in Virgil Dashboard, copy its `APP_ID` to the `.env` file;
+3. Create App Key and save it to `APP_KEY` line in the `.env` file;
+4. Copy ID of the created key to `APP_KEY_ID` line in the `.env` file;
 
 
 ## Install Dependencies and Run the Server
@@ -86,17 +92,15 @@ const virgilCrypto = new VirgilCrypto();
 
 const generator = new JwtGenerator({
   appId: process.env.APP_ID,
-  apiKeyId: process.env.API_KEY_ID,
-  apiKey: virgilCrypto.importPrivateKey(process.env.API_PRIVATE_KEY),
+  apiKeyId: process.env.APP_KEY_ID,
+  apiKey: virgilCrypto.importPrivateKey(process.env.APP_KEY),
   accessTokenSigner: new VirgilAccessTokenSigner(virgilCrypto)
 });
 
 ```
 Then you need to provide an HTTP endpoint which will return the JWT with the user's identity as a JSON.
 
-For more details take a look at the [server.js](server.js) file.
-
-
+For more details take a look at the [virgilToken.js](api/virgilToken.js) file.
 
 ## License
 
