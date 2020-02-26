@@ -5,7 +5,7 @@ This repository contains a sample backend code that demonstrates how to generate
 > Do not use this authentication in production. Requests to a /virgil-jwt endpoint must be allowed for authenticated users. Use your application authorization strategy.
 
 ## Prerequisites
-- [NodeJS from 6 to 11](https://nodejs.org/uk/) 
+- [NodeJS from 10 to 13](https://nodejs.org/uk/) 
 
 ## Clone
 
