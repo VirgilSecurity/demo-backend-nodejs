@@ -1,6 +1,29 @@
 const { assert } = require("chai");
 const app = require("../server");
 const supertest = require("supertest");
+const { initCrypto, VirgilCrypto, VirgilCardCrypto } = require('virgil-crypto');
+const { ConstAccessTokenProvider, CardManager, VirgilCardVerifier } = require('virgil-sdk');
+
+async function getCrypto() {
+  await initCrypto();
+
+	return new VirgilCrypto();
+}
+
+async function checkJwt(token) {
+	const virgilCrypto = await getCrypto();
+	const cardCrypto = new VirgilCardCrypto(virgilCrypto);
+
+	const jwtProvider = new ConstAccessTokenProvider(token);
+	const cardVerifier = new VirgilCardVerifier(cardCrypto);
+	const cardManager = new CardManager({
+		cardCrypto: cardCrypto,
+		accessTokenProvider: jwtProvider,
+		cardVerifier: cardVerifier
+	});
+
+	return cardManager.searchCards('any');
+}
 
 const server = supertest(process.env.API_URL ? process.env.API_URL : app);
 const prefix = "virgiltest";
@@ -27,7 +50,8 @@ describe("GET /virgil-jwt", function () {
         return getToken(testIdentity)
             .then(response => server.get('/virgil-jwt')
                 .set('authorization', `Bearer ${response.body.authToken}`)
-                .expect(200)
+								.expect(200)
+								.then(response => checkJwt(response.body.virgilToken))
             )
     });
 });
