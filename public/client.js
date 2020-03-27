@@ -24,8 +24,12 @@ authenticate('alice').then(authToken => {
     // E3kit will call this callback function and wait for the Promise resolve.
     // When it receives Virgil JWT it can do authorized requests to Virgil Cloud.
     // E3kit uses the identity encoded in the JWT as the current user's identity.
-    E3kit.EThree.initialize(getVirgilToken)
-        .then(e3kit => showMessage('e3kit ready for identity: ' + e3kit.identity));
+		E3kit.EThree.initialize(getVirgilToken)
+				.then(e3kit => {
+					showMessage('e3kit ready for identity: ' + e3kit.identity);
+					return e3kit.register();
+				});
+				
 
     // This function makes authenticated request to GET /virgil-jwt endpoint
     // The token it returns serves to make authenticated requests to Virgil Cloud
