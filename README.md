@@ -1,4 +1,4 @@
-# Demo Backend for Node.js
+# Virgil Demo Backend for Node.js
 
 This repository contains a sample backend code that demonstrates how to generate a Virgil JWT using the [Javascript SDK](https://github.com/VirgilSecurity/virgil-sdk-javascript)
 
@@ -7,7 +7,7 @@ This repository contains a sample backend code that demonstrates how to generate
 ## Prerequisites
 - [NodeJS from 10 to 13](https://nodejs.org/uk/) 
 
-## Clone
+## Set up and run backend
 
 Clone the repository from GitHub.
 
@@ -15,17 +15,17 @@ Clone the repository from GitHub.
 $ git clone https://github.com/VirgilSecurity/demo-backend-nodejs.git
 ```
 
-## Get Virgil Credentials
+### Get Virgil Credentials
 
 If you don't have an account yet, [sign up for one](https://dashboard.virgilsecurity.com/signup) using your e-mail.
 
-### You can download a ready-to-use .env file
+#### You can download a ready-to-use .env file
 
 1. Navigate to the Virgil Dashboard -> Your Application -> E3Kit Section.
 2. Generate `.env` in the **.env file** section.
 3. Download the generated file, paste it into the project root folder and rename it to `.env`.
 
-### Or you can add the parameters manually:
+#### Or you can add the parameters manually:
 
 To generate a JWT the following values are required:
 
@@ -41,13 +41,15 @@ To generate a JWT the following values are required:
 4. Copy ID of the created key to `APP_KEY_ID` line in the `.env` file;
 
 
-## Install Dependencies and Run the Server
+### Install Dependencies and Run the Server
 
 ```
 $ npm install
 $ npm run start
 ```
 Now, use your client code to make a request to get a JWT from the sample backend that is working on http://localhost:3000.
+
+<img src="img/localhost.png" alt="Virgil Node.js server running">
 
 ## Specification
 
